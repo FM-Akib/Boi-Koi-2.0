@@ -1,8 +1,9 @@
-
+import Hero from "../Hero/Hero";
+import './Home.css';
 const Home = () => {
     return (
-        <div className="text-green-300">
-            Hooome
+        <div className="home-container">
+          <Hero/>
         </div>
     );
 };
