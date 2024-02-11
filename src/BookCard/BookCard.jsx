@@ -1,7 +1,7 @@
 
-const BookCard = ({book}) => {
+const BookCard = ({bookg}) => {
     // console.log(book);
-    const [name]=book;
+    const {name}=bookg;
     return (
             <div className="max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
             <img src="https://source.unsplash.com/random/300x300/?2" alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
