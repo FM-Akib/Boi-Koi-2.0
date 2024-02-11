@@ -1,14 +1,18 @@
+import { createContext } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLoaderData } from "react-router-dom";
+export const BookContext=createContext([])
+
 
 const Layout = () => {
+    const books=useLoaderData();
     return (
-        <div>
+        <BookContext.Provider value={books}>
             <Header/>
             <Outlet />
             <Footer/>
-        </div>
+        </BookContext.Provider>
     );
 };
 

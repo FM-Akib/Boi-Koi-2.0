@@ -1,0 +1,147 @@
+[
+    {
+      "id": 1,
+      "name": "The Great Gatsby",
+      "authorName": "F. Scott Fitzgerald",
+      "img": "great_gatsby.jpg",
+      "price": 15.99,
+      "quantity": 50,
+      "availability": true,
+      "description": "A classic novel depicting the American Dream during the Roaring Twenties.",
+      "type": "Fiction",
+      "onepara": "The Great Gatsby is a classic novel written by F. Scott Fitzgerald. It vividly portrays the American Dream and the excesses of the wealthy during the Roaring Twenties."
+    },
+    {
+      "id": 2,
+      "name": "To Kill a Mockingbird",
+      "authorName": "Harper Lee",
+      "img": "mockingbird.jpg",
+      "price": 12.50,
+      "quantity": 30,
+      "availability": true,
+      "description": "A powerful exploration of racial injustice in the American South.",
+      "type": "Fiction",
+      "onepara": "To Kill a Mockingbird, authored by Harper Lee, is a compelling novel that delves into the issues of racial injustice prevalent in the American South."
+    },
+    {
+      "id": 3,
+      "name": "Sapiens: A Brief History of Humankind",
+      "authorName": "Yuval Noah Harari",
+      "img": "sapiens.jpg",
+      "price": 22.99,
+      "quantity": 40,
+      "availability": true,
+      "description": "An engaging journey through the history of our species.",
+      "type": "Non-Fiction",
+      "onepara": "Sapiens: A Brief History of Humankind, written by Yuval Noah Harari, takes readers on a captivating journey through the history of our species, providing insights into our evolution and development."
+    },
+    {
+      "id": 4,
+      "name": "1984",
+      "authorName": "George Orwell",
+      "img": "1984.jpg",
+      "price": 18.50,
+      "quantity": 25,
+      "availability": true,
+      "description": "A dystopian novel depicting a totalitarian regime and the consequences of thought control.",
+      "type": "Fiction",
+      "onepara": "1984, written by George Orwell, is a dystopian novel that explores the consequences of a totalitarian regime and the impact of thought control on individuals and society."
+    },
+    {
+      "id": 5,
+      "name": "The Hobbit",
+      "authorName": "J.R.R. Tolkien",
+      "img": "hobbit.jpg",
+      "price": 14.75,
+      "quantity": 35,
+      "availability": true,
+      "description": "A fantasy adventure novel following the journey of Bilbo Baggins.",
+      "type": "Fiction",
+      "onepara": "The Hobbit, written by J.R.R. Tolkien, is a fantasy adventure novel that follows the journey of Bilbo Baggins as he embarks on an epic quest filled with magic, dragons, and adventure."
+    },
+    {
+      "id": 6,
+      "name": "The Catcher in the Rye",
+      "authorName": "J.D. Salinger",
+      "img": "catcher_in_the_rye.jpg",
+      "price": 16.99,
+      "quantity": 20,
+      "availability": true,
+      "description": "A coming-of-age novel portraying the experiences of a disenchanted teenager.",
+      "type": "Fiction",
+      "onepara": "The Catcher in the Rye, penned by J.D. Salinger, is a coming-of-age novel that provides a glimpse into the experiences of a disenchanted teenager navigating the challenges of adolescence."
+    },
+    {
+      "id": 7,
+      "name": "The Da Vinci Code",
+      "authorName": "Dan Brown",
+      "img": "da_vinci_code.jpg",
+      "price": 20.25,
+      "quantity": 45,
+      "availability": true,
+      "description": "A mystery thriller unraveling secrets hidden in famous works of art.",
+      "type": "Fiction",
+      "onepara": "The Da Vinci Code, authored by Dan Brown, is a mystery thriller that unravels secrets hidden in famous works of art, taking readers on a gripping journey filled with intrigue and suspense."
+    },
+    {
+      "id": 8,
+      "name": "Educated",
+      "authorName": "Tara Westover",
+      "img": "educated.jpg",
+      "price": 25.99,
+      "quantity": 30,
+      "availability": true,
+      "description": "A memoir depicting the author's journey from a survivalist family to earning a PhD.",
+      "type": "Non-Fiction",
+      "onepara": "Educated, written by Tara Westover, is a powerful memoir that chronicles the author's remarkable journey from growing up in a survivalist family with no formal education to eventually earning a PhD."
+    },
+    {
+      "id": 9,
+      "name": "The Alchemist",
+      "authorName": "Paulo Coelho",
+      "img": "alchemist.jpg",
+      "price": 19.50,
+      "quantity": 40,
+      "availability": true,
+      "description": "A philosophical novel following the journey of a shepherd in search of his personal legend.",
+      "type": "Fiction",
+      "onepara": "The Alchemist, penned by Paulo Coelho, is a philosophical novel that follows the journey of a shepherd named Santiago as he embarks on a quest to discover his personal legend and fulfill his dreams."
+    },
+    {
+      "id": 10,
+      "name": "The Girl on the Train",
+      "authorName": "Paula Hawkins",
+      "img": "girl_on_the_train.jpg",
+      "price": 17.75,
+      "quantity": 35,
+      "availability": true,
+      "description": "A psychological thriller revolving around a woman who becomes entangled in a missing person investigation.",
+      "type": "Fiction",
+      "onepara": "The Girl on the Train, written by Paula Hawkins, is a gripping psychological thriller that revolves around a woman who becomes entangled in a missing person investigation, leading to a web of secrets and suspense."
+    },
+    {
+      "id": 11,
+      "name": "The Art of War",
+      "authorName": "Sun Tzu",
+      "img": "art_of_war.jpg",
+      "price": 12.99,
+      "quantity": 50,
+      "availability": true,
+      "description": "An ancient Chinese treatise on military strategy and tactics.",
+      "type": "Non-Fiction",
+      "onepara": "The Art of War, attributed to Sun Tzu, is an ancient Chinese treatise on military strategy and tactics. It remains a classic guide for understanding the principles of warfare and leadership."
+    },
+    {
+      "id": 12,
+      "name": "The Road",
+      "authorName": "Cormac McCarthy",
+      "img": "the_road.jpg",
+      "price": 21.50,
+      "quantity": 25,
+      "availability": true,
+      "description": "A post-apocalyptic novel following a father and son's journey through a desolate world.",
+      "type": "Fiction",
+      "onepara": "The Road, written by Cormac McCarthy, is a haunting post-apocalyptic novel that follows the journey of a father and son through a desolate world, exploring themes of survival, hope, and humanity."
+    }
+  ]
+  
