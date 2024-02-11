@@ -1,8 +1,24 @@
 import { Link } from 'react-router-dom';
 import logo from '../assets/Image/logo_boikoi.png';
+import './Header.css';
+import { useState } from 'react';
 const Header = () => {
+
+	const [color,setcolor]= useState(false);
+	const ChangeColor=()=>{
+		if(window.scrollY>=90){
+			setcolor(true);
+		}
+		else {
+			setcolor(false);
+		}
+	}
+
+	window.addEventListener('scroll',ChangeColor);
+
+
     return (
-    <header className="p-4 dark:bg-red-600 dark:text-gray-100">
+    <header className={color? 'header-bg  header-container':'header-container'}>
 	<div className="container flex justify-between h-14 mx-auto">
 		<a rel="noopener noreferrer" href="#" aria-label="Back to homepage" className="flex items-center p-2">
 			

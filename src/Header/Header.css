@@ -1,0 +1,13 @@
+.header-container{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    transition: .3 ease-in;
+    overflow: hidden;
+    padding: 20px;
+    color: white;
+}
+.header-bg{
+    background-color: rgb(255, 0, 0);
+
+}
