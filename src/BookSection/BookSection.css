@@ -1,4 +1,9 @@
 .book-section{
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    width: 90%;
+    margin: 5rem auto;
+    gap:50px;
+    /* justify-items: stretch; */
+    justify-content: space-around;
 }
