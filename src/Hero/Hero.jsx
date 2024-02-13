@@ -10,8 +10,8 @@ const Hero = () => {
                 <h1
                     className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl text-center text-gray-800 dark:text-white font-black leading-10">
                     Today a 
-                    <span className="text-violet-800 dark:text-violet-500 ml-1 mr-1">reader</span>
-                    ,<br/> tomorrow a leader
+                    <span className="text-yellow-800 dark:text-yellow-500 ml-2 mr-1">Reader</span>
+                    ,<br/> tomorrow a Leader
                 </h1>
                 <p className="mt-5 sm:mt-10 lg:w-10/12 text-gray-600 dark:text-gray-300 font-normal text-center text-xl">
                     A Community for bookies.
