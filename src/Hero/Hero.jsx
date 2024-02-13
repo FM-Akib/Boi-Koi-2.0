@@ -9,12 +9,12 @@ const Hero = () => {
             <div className="w-11/12 sm:w-2/3 lg:flex justify-center items-center flex-col mb-5 sm:mb-10">
                 <h1
                     className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl text-center text-gray-800 dark:text-white font-black leading-10">
-                    Let's not stress for
-                    <span className="text-violet-800 dark:text-violet-500 ml-1 mr-1">Website</span>
-                    designs.
+                    Today a 
+                    <span className="text-violet-800 dark:text-violet-500 ml-1 mr-1">reader</span>
+                    ,<br/> tomorrow a leader
                 </h1>
                 <p className="mt-5 sm:mt-10 lg:w-10/12 text-gray-600 dark:text-gray-300 font-normal text-center text-xl">
-                    A Community build tailwind component library.
+                    A Community for bookies.
                 </p>
             </div>
             <div className="flex w-11/12 md:w-8/12 xl:w-6/12">
