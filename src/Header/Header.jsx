@@ -47,7 +47,9 @@ const Header = () => {
 		{
 			user ? <img className="flex items-center w-10 h-10 border rounded-full object-cover" src={user.photoURL}/> :
 			<div className="items-center flex-shrink-0 hidden lg:flex">
-			<button className="self-center px-8 py-3 rounded">Sign in</button>
+
+		<Link to="/login"><button className="self-center px-8 py-3 rounded">Sign in</button></Link>	
+
 			<Link to="/signup"><button className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Sign up</button></Link>
 		</div>
 		}
