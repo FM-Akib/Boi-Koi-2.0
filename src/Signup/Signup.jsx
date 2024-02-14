@@ -1,16 +1,17 @@
-import {getAuth , GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import './Signup.css';
-import app from '../../Firebase/firebase.config.js'
+import auth from '../Firebase/firebase.config';
+// import app from '../../Firebase/firebase.config.js'
 
 
 
 const Signup = () => {
-    const auth = getAuth(app);
+    const Auth = auth;
     const googleProvider= new GoogleAuthProvider();
 
 const handleSigninWithGoogle=()=>{
   
-        signInWithPopup(auth, googleProvider)
+        signInWithPopup(Auth, googleProvider)
         .then(result=>{
             const loggedUser=result.user;
             console.log(loggedUser);
