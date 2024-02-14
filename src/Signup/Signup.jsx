@@ -1,9 +1,29 @@
+import {getAuth , GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import './Signup.css';
+import app from '../../Firebase/firebase.config.js'
+
+
+
 const Signup = () => {
-    return (
+    const auth = getAuth(app);
+    const googleProvider= new GoogleAuthProvider();
+
+const handleSigninWithGoogle=()=>{
+  
+        signInWithPopup(auth, googleProvider)
+        .then(result=>{
+            const loggedUser=result.user;
+            console.log(loggedUser);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+}
+
+return (
         
-<div className="min-h-screen bg-gray-600 text-gray-100 flex justify-center ">
-    <div className="max-w-screen-xl m-0 sm:m-10 bg-gray-600 shadow sm:rounded-lg flex justify-center flex-1">
+<div className="min-h-screen bg-green-800 text-gray-100 flex justify-center ">
+    <div className="max-w-screen-xl m-0 sm:m-10 bg-green-800 shadow sm:rounded-lg flex justify-center flex-1">
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
             <div>
                 {/* <img src="https://storage.googleapis.com/devitary-image-host.appspot.com/15846435184459982716-LogoMakr_7POjrN.png"
@@ -15,7 +35,7 @@ const Signup = () => {
                 </h1>
                 <div className="w-full flex-1 mt-8">
                     <div className="flex flex-col items-center">
-                        <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                        <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline" onClick={handleSigninWithGoogle}>
                             <div className="bg-white p-2 rounded-full">
                                 <svg className="w-4" viewBox="0 0 533.5 544.3">
                                     <path
@@ -53,7 +73,7 @@ const Signup = () => {
 
                     <div className="my-12 border-b text-center">
                         <div
-                            className="leading-none px-2 inline-block text-sm text-gray-100 tracking-wide font-medium bg-gray-600 transform translate-y-1/2">
+                            className="leading-none px-2 inline-block text-sm text-gray-100 tracking-wide font-medium bg-green-800 transform translate-y-1/2">
                             Or sign up with e-mail
                         </div>
                     </div>
@@ -90,7 +110,7 @@ const Signup = () => {
                 </div>
             </div>
         </div>
-        <div className="flex-1 bg-gray-600 text-center hidden lg:flex">
+        <div className="flex-1 bg-green-800 text-center hidden lg:flex">
             <div className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat sign-img">
             </div>
         </div>
