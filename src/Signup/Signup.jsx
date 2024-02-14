@@ -1,4 +1,4 @@
-import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import './Signup.css';
 import auth from '../Firebase/firebase.config';
 import { useContext } from 'react';
@@ -49,7 +49,14 @@ const handleLogin=(e)=>{
     const email=e.target.email.value;
     const password=e.target.password.value;
     // console.log(email, password);
-
+    createUserWithEmailAndPassword(Auth,email,password)
+    .then(result=>{
+        const loggedUser=result.user;
+        setUser(loggedUser);
+    })
+    .catch(err=>{
+        console.log(err);
+    })
 }
 
 return (
