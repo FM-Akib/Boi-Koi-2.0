@@ -1,16 +1,36 @@
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import './Signup.css';
 import auth from '../Firebase/firebase.config';
 import { useContext } from 'react';
 import { UserContext } from '../Layout/Layout';
-// import app from '../../Firebase/firebase.config.js'
+
 
 
 
 const Signup = () => {
     const Auth = auth;
     const googleProvider= new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
     const [user,setUser]=useContext(UserContext)
+
+
+const handleGithubSignIn=()=>{
+
+    signInWithPopup(Auth,githubProvider)
+    .then(result=>{
+        const loggedUser=result.user;
+        setUser(loggedUser);
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+
+}
+
+
+
+
 
 const handleSigninWithGoogle=()=>{
   
@@ -22,8 +42,14 @@ const handleSigninWithGoogle=()=>{
     .catch(err=>{
         console.log(err);
     })
+}
 
-    // console.log(user)
+const handleLogin=(e)=>{
+    e.preventDefault();
+    const email=e.target.email.value;
+    const password=e.target.password.value;
+    // console.log(email, password);
+
 }
 
 return (
@@ -63,7 +89,7 @@ return (
                             </span>
                         </button>
 
-                        <button
+                        <button onClick={handleGithubSignIn}
                             className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
                             <div className="bg-white p-1 rounded-full">
                                 <svg className="w-6" viewBox="0 0 32 32">
@@ -77,20 +103,20 @@ return (
                         </button>
                     </div>
 
-                    <div className="my-12 border-b text-center">
-                        <div
-                            className="leading-none px-2 inline-block text-sm text-gray-100 tracking-wide font-medium bg-green-800 transform translate-y-1/2">
+                    <div className="my-10 border-b text-center">
+                        <div className="leading-none px-2 inline-block text-sm text-gray-100 tracking-wide font-medium bg-green-800 transform translate-y-1/2">
                             Or sign up with e-mail
                         </div>
                     </div>
 
-                    <div className="mx-auto max-w-xs">
+                   <form onSubmit={handleLogin}>
+                   <div className="mx-auto max-w-xs">
                         <input
                             className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                            type="email" placeholder="Email" />
+                            name="email" type="email" placeholder="Email" />
                         <input
                             className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                            type="password" placeholder="Password" />
+                            name="password" type="password" placeholder="Password" />
                         <button
                             className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                             <svg className="w-6 h-6 -ml-2" fill="none" stroke="currentColor" >
@@ -113,6 +139,7 @@ return (
                             </a>
                         </p>
                     </div>
+                   </form>
                 </div>
             </div>
         </div>
