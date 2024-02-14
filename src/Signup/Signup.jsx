@@ -1,6 +1,8 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import './Signup.css';
 import auth from '../Firebase/firebase.config';
+import { useContext } from 'react';
+import { UserContext } from '../Layout/Layout';
 // import app from '../../Firebase/firebase.config.js'
 
 
@@ -8,17 +10,20 @@ import auth from '../Firebase/firebase.config';
 const Signup = () => {
     const Auth = auth;
     const googleProvider= new GoogleAuthProvider();
+    const [user,setUser]=useContext(UserContext)
 
 const handleSigninWithGoogle=()=>{
   
-        signInWithPopup(Auth, googleProvider)
-        .then(result=>{
-            const loggedUser=result.user;
-            console.log(loggedUser);
-        })
-        .catch(err=>{
-            console.log(err);
-        })
+    signInWithPopup(Auth, googleProvider)
+    .then(result=>{
+        const loggedUser=result.user;
+        setUser(loggedUser);
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+
+    // console.log(user)
 }
 
 return (
