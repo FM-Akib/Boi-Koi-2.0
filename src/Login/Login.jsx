@@ -1,17 +1,51 @@
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
+import auth from "../Firebase/firebase.config";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { UserContext } from "../Layout/Layout";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const Login = () => {
 const [show,setshow]= useState(false);
+const [user,setUser]=useContext(UserContext)
+const Auth=auth;
+const notify = () => toast.success('Login Successful!', {
+  position: "top-center",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "colored",
+  });
 
-const loginOnSubmit = (e) =>{
+
+const SignUpOnSubmit = (e) =>{
+    e.preventDefault();
     const email=e.target.email.value;
     const password=e.target.password.value;
-      console.log(email,password);
+
+  signInWithEmailAndPassword(Auth,email,password)
+  .then(result=>{
+    const loggedUser=result.user;
+    setUser(loggedUser);
+    notify();
+
+  })
+  .catch(err=>{
+    console.log(err);
+  })
+  
 }
 
 return (
+  <>
+<ToastContainer/>
 
 <div className="bg-yellow-400 dark:bg-yellow-400 h-screen overflow-hidden flex items-center justify-center">
   <div className="bg-white lg:w-6/12 md:7/12 w-8/12 shadow-3xl rounded-xl mt-14">
@@ -22,7 +56,7 @@ return (
     </div>
 
 
-    <form onSubmit={loginOnSubmit} className="p-12 md:p-24">
+    <form onSubmit={SignUpOnSubmit} className="p-12 md:p-24">
       <div className="flex items-center text-lg mb-6 md:mb-8">
         <svg className="absolute ml-3" width="24" viewBox="0 0 24 24">
           <path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z"/>
@@ -55,10 +89,12 @@ return (
 
 
       </div>
-      <button className="bg-gradient-to-b from-gray-700 to-gray-900 font-medium p-2 md:p-4 text-white uppercase w-full rounded">Login</button>
+      <button className="bg-gradient-to-b from-green-700 to-green-900 font-medium p-2 md:p-4 text-white uppercase w-full rounded">Login</button>
     </form>
   </div>
  </div>
+
+ </>
     );
 };
 

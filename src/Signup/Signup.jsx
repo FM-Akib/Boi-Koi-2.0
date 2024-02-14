@@ -3,9 +3,29 @@ import './Signup.css';
 import auth from '../Firebase/firebase.config';
 import { useContext } from 'react';
 import { UserContext } from '../Layout/Layout';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-
-
+const notify = () => toast.success('Sign up Successful!', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    });
+const notify2 = () => toast.warn('Give a valid Email.', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    });
 
 const Signup = () => {
     const Auth = auth;
@@ -21,6 +41,7 @@ const handleGithubSignIn=()=>{
     .then(result=>{
         const loggedUser=result.user;
         setUser(loggedUser);
+        notify();
     })
     .catch(err=>{
         console.log(err);
@@ -38,6 +59,7 @@ const handleSigninWithGoogle=()=>{
     .then(result=>{
         const loggedUser=result.user;
         setUser(loggedUser);
+        notify();
     })
     .catch(err=>{
         console.log(err);
@@ -48,11 +70,18 @@ const handleLogin=(e)=>{
     e.preventDefault();
     const email=e.target.email.value;
     const password=e.target.password.value;
-    // console.log(email, password);
+    
+    if(!email){
+        notify2();
+        return;
+    }
+
+
     createUserWithEmailAndPassword(Auth,email,password)
     .then(result=>{
         const loggedUser=result.user;
         setUser(loggedUser);
+        notify();
     })
     .catch(err=>{
         console.log(err);
@@ -60,7 +89,8 @@ const handleLogin=(e)=>{
 }
 
 return (
-        
+    <>
+    <ToastContainer/>
 <div className="min-h-screen bg-green-800 text-gray-100 flex justify-center ">
     <div className="max-w-screen-xl m-0 sm:m-10 bg-green-800 shadow sm:rounded-lg flex justify-center flex-1">
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
@@ -119,10 +149,10 @@ return (
                    <form onSubmit={handleLogin}>
                    <div className="mx-auto max-w-xs">
                         <input
-                            className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                            className="w-full text-gray-900 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                             name="email" type="email" placeholder="Email" />
                         <input
-                            className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                            className="w-full text-gray-900 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                             name="password" type="password" placeholder="Password" />
                         <button
                             className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
@@ -156,6 +186,7 @@ return (
         </div>
     </div>
 </div>
+</>
     );
 };
 
