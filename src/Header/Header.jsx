@@ -32,16 +32,16 @@ const Header = () => {
 		</a>
 		<ul className="items-stretch hidden space-x-3 lg:flex">
 			<li className="flex">
-				<Link to="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400">Home</Link>
+				<Link to="/" className="flex items-center px-4 -mb-1  dark:border-transparent ">Home</Link>
 			</li>
 			<li className="flex">
-				<Link to="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Publications</Link>
+				<Link to="#" className="flex items-center px-4 -mb-1  dark:border-transparent">Publications</Link>
 			</li>
 			<li className="flex">
-				<Link to="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Orders</Link>
+				<Link to="#" className="flex items-center px-4 -mb-1  dark:border-transparent">Orders</Link>
 			</li>
 			<li className="flex">
-				<Link to="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Statistics</Link>
+				<Link to="#" className="flex items-center px-4 -mb-1  dark:border-transparent">Statistics</Link>
 			</li>
 		</ul>
 		{

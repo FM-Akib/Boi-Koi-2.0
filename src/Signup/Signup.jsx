@@ -1,4 +1,4 @@
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, sendEmailVerification, signInWithPopup } from 'firebase/auth';
 import './Signup.css';
 import auth from '../Firebase/firebase.config';
 import { useContext } from 'react';
@@ -17,6 +17,16 @@ const notify = () => toast.success('Sign up Successful!', {
     theme: "colored",
     });
 const notify2 = () => toast.warn('Give a valid Email.', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    });
+const info = () => toast.info('Please check your email.', {
     position: "top-center",
     autoClose: 5000,
     hideProgressBar: false,
@@ -76,12 +86,16 @@ const handleLogin=(e)=>{
         return;
     }
 
-
     createUserWithEmailAndPassword(Auth,email,password)
     .then(result=>{
         const loggedUser=result.user;
-        setUser(loggedUser);
-        notify();
+        sendEmailVerification(result.user)
+        .then(()=>{
+            info();    
+        })
+        
+        setUser(loggedUser)
+        
     })
     .catch(err=>{
         console.log(err);
