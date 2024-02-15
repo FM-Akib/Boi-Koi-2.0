@@ -1,19 +1,32 @@
 
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 import auth from "../Firebase/firebase.config";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import { UserContext } from "../Layout/Layout";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
 const [show,setshow]= useState(false);
 const [user,setUser]=useContext(UserContext)
 const Auth=auth;
+
+
 const notify = () => toast.success('Login Successful!', {
+  position: "top-center",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "colored",
+  });
+const notifyCheck = () => toast.info('Check your gmail!', {
   position: "top-center",
   autoClose: 5000,
   hideProgressBar: false,
@@ -42,6 +55,19 @@ const SignUpOnSubmit = (e) =>{
   })
   
 }
+const emailRef=useRef(null);
+
+const handleForgotPassword=()=>{
+const emailr = emailRef.current.value;
+  sendPasswordResetEmail(Auth,emailr)
+  .then(()=>{
+    notifyCheck();
+  })
+  .catch(err=>{
+    console.log(err);
+  })
+}
+
 
 return (
   <>
@@ -61,7 +87,12 @@ return (
         <svg className="absolute ml-3" width="24" viewBox="0 0 24 24">
           <path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z"/>
         </svg>
-        <input name="email" type="email" id="username" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Username" />
+        <input 
+        name="email" 
+        type="email" 
+        id="username"
+        ref={emailRef} 
+        className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Username" />
       </div>
 
 
@@ -84,11 +115,10 @@ return (
           }
           </span>
 
-
-     
-
-
       </div>
+
+      <p className="mb-2">Forgot password? <Link onClick={handleForgotPassword} className="underline text-blue-600 cursor-pointer">Reset password.</Link></p>
+
       <button className="bg-gradient-to-b from-green-700 to-green-900 font-medium p-2 md:p-4 text-white uppercase w-full rounded">Login</button>
     </form>
   </div>
